@@ -3,7 +3,7 @@
 
 - In this work, we propose a hierarchical controller approach to control a motion of an industrial robot at real time. The approach considers tool center point force property and joint space variables to derive a robust motion control that hierarchically adapts to the level of object deformation.
 
-The project is submitted to the forthcoming conference: "CIRP Manufacturing Systems Conference 2019"
+The project is submitted to the forthcoming conference: "52nd CIRP Conference on Manufacturing Systems"
 
 
 # How to use the code:
