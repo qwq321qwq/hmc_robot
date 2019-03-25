@@ -1,4 +1,4 @@
-# Hierarchical Motion Control for Industrial Robots for Real time simulation
+# Hierarchical Motion Control for Industrial Robots Using ROS
 Hierarchical motion control for real time simulation of industrial robots
 
 In order to use this code, please follow the following,
