@@ -1,4 +1,4 @@
-# hmc_robot
+# Hierarchical Motion Control for Industrial Robots for Real time simulation
 Hierarchical motion control for real time simulation of industrial robots
 
 In order to use this code, please follow the following,
