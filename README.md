@@ -22,4 +22,4 @@ For the ROS package of Net F/T sensor check at: https://github.com/epfl-lasa/net
 - Then RUN main_file.py and visualize your data based on your requirment. 
 
 # Result
-
+![Experimental_setup](IMG_1351.jpg)
