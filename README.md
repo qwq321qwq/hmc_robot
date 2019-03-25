@@ -20,3 +20,6 @@ For the ROS package of Net F/T sensor check at: https://github.com/epfl-lasa/net
 - If the connection is successful - before you continue check for simple test to check the system.
 
 - Then RUN main_file.py and visualize your data based on your requirment. 
+
+# Result
+
