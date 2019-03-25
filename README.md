@@ -7,3 +7,16 @@ For the ROS package of Universal Robot, check at https://github.com/ros-industri
 
 # Clone Net F/T Sensor ROS package 
 For the ROS package of Net F/T sensor check at: https://github.com/epfl-lasa/net-ft-ros.git
+
+# How to use the code: 
+- Launch ROS using roscore
+
+- Launch Universal robot and configure the IP-Address from ROS 
+
+- Launch Net F/T Sensor and configure the IP - Address from ROS
+
+- Check if the connection is established. From terminal use: ping 192.168.1.10 / 192.168.1.1 based on the IP Address of the configuration
+
+- If the connection is successful - before you continue check for simple test to check the system.
+
+- Then RUN main_file.py and visualize your data based on your requirment. 
