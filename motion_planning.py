@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-''' Author: Tadele Belay Tuli,  MSc., MSc.
+''' Author: Tadele Belay Tuli,  MSc.
     (c) 2018/9 University of Siegen, FAMS '''
 
 # Copyright Tadele Belay Tuli, 2019
