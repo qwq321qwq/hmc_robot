@@ -1,14 +1,31 @@
 #!/usr/bin/env python
-''' Author: Tadele Belay MSc.
+''' Author: Tadele Belay Tuli MSc.
     ======  E-mail: tadele-belay.tuli@uni-siegen.de
             Universitity of Siegen, Germany
             2019 
                     
-    Note: - You can test the code at your own risk! I do not guarantee you!
+    Note: 
     =====
-          - This code has dependency on Net F/T sensor and UR5 ROS-system.
+          - This code has dependency on Net F/T sensor and UR5 ROS-system.'''
+
+# Copyright Tadele Belay Tuli, 2019
+# Distributed under the terms of the GNU General Public License
+
+# --------------------------------------------------------------------
+# This function is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This function is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with pyspread.  If not, see <http://www.gnu.org/licenses/>.
+# -------------------------------------------------------------------
     
-    '''
 
 import time
 import datetime
@@ -154,10 +171,9 @@ P3 = [57.02, -89.58, -113.75, -60.82, 89.26, -79.78] # Stop
 
 ''' Interpolation function '''
 sampleSize = 4000
-def interpolation(a, b): 
+def discretization(a, b): 
     
     return np.linspace(a, b, sampleSize, endpoint = True)
-
 
 
 def move_robot(position, velocity, time_step):   
@@ -177,13 +193,10 @@ def move_robot(position, velocity, time_step):
         client.cancel_goal()
         raise
 
-  
+	
 '''Set point force param'''
 target_force = -30.0 
-
-''' Client '''
 client = None
-
 class force_controller: 
     """ This class is used to implement PID force control based on the module  imported as PID 
     """        
@@ -201,8 +214,7 @@ def frange(start, stop, step):
 	while x < stop:
 		yield x
 		x += step
-		
-		    
+				    
 def main():
     global client
     try:
@@ -251,13 +263,11 @@ def main():
         '''
         Phase 2: Target force seeking
         '''
-        path_segments = [interpolation(P2[i], P3[i]) for i in range(6)]
+        path_segments = [discretization(P2[i], P3[i]) for i in range(6)]
         
         ''' 
         Velocity is computed from trapezoidal velocity profile 
-        '''
-        
-        
+        '''               
         #time = velocity/path_segment 
         time = 0.03         # Let us check at real time speed of (33Hz)
         for i in range(sampleSize):
@@ -265,21 +275,12 @@ def main():
             sensor_force = sensordata.force_sensor_z 
             joint_force_tcp = sensordata.force_tcp_r 
             joint_pose = sensordata.positions
-            th = mat(joint_pose)
-            
+            th = mat(joint_pose)            
             error = sensor_force - target_force
             
             # Force PID Update
             force_control.update_PID(error)
-            
-            ''' 
-            Implement data acquisition here!
-            data_exporter(filename, data)
-            
-            ...
-            
-            '''
-            
+                   
             if error == 0.0: 
                 time.sleep(0.1)
             elif error > 0.0:
@@ -305,6 +306,10 @@ def main():
                         move_robot(pos_seek, 0, time)
                 else: 
                     time.sleep(2.0)
+	    ''' 
+            Implement data acquisition here!
+            data_exporter(filename, data)
+            '''
             time.sleep(15)
             print "The robto has achieved the maximum force"                    
             pos_initial = [i * pi/180 for i in P1] 
