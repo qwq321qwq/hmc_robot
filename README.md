@@ -37,5 +37,5 @@ For the ROS package of Net F/T sensor check at: https://github.com/epfl-lasa/net
 ## Real time simulation 
 
 ![Robot_Simulation](cirp_cms_video.mp4)
-{% video cirp_cms_video.mp4 %}{:class="w3-card-4 w3-col s12 m6 l6 w3-right w3-margin-left w3-margin-bottom"}
+{% video {{ site.baseurl }}cirp_cms_video.mp4 %}{:class="w3-card-4 w3-col s12 m6 l6 w3-right w3-margin-left w3-margin-bottom"}
 
